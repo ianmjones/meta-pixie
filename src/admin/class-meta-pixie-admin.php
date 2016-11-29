@@ -148,20 +148,22 @@ class Meta_Pixie_Admin {
 					<h3>Columns</h3>
 					<p>
 						<dl>
-							<dt>Option ID</dt>
-							<dd>The unique ID given automatically to each options record.</dd>
-							<dt>Option Name</dt>
+							<dt>ID</dt>
+							<dd>The unique ID given automatically to each record.</dd>
+							<dt>Related ID</dt>
+							<dd>The ID for the related record that the meta data is for.</dd>
+							<dt>Key</dt>
 							<dd>
-							The unique name given to each options record, used by WordPress and third parties to get and set options.<br>
-							If the Option Name begins with "_transient_" it is a temporary record that will be removed after a specific timeout period.<br>
-							Option Names begining with "_transient_timeout_" specify the UNIX timestamp after which the record and its counterpart may be removed.
+							The name given to each record, used by WordPress and third parties to get and set records along with the Related ID.<br>
+							If the Key begins with "_transient_" it is a temporary record that will be removed after a specific timeout period.<br>
+							Keys begining with "_transient_timeout_" specify the UNIX timestamp after which the record and its counterpart may be removed.
 							</dd>
-							<dt>Option Value</dt>
+							<dt>Value</dt>
 							<dd>The actual value for the record, can be any format that can be stored in a string.</dd>
 							<dt>Type</dt>
 							<dd>
-							A column created by the plugin to show the type of data being stored in the Option Value. This column is not stored in the database.<br>
-							When the type is blank the Option Value is general text or numeric data.<br>
+							A column created by the plugin to show the type of data being stored in the Value. This column is not stored in the database.<br>
+							When the type is blank the Value is general text or numeric data.<br>
 							<strong>"S"</strong> is for Serialized data.<br>
 							<strong>"J"</strong> is for JSON data.<br>
 							<strong>"O"</strong> is for Object.<br>
@@ -169,12 +171,10 @@ class Meta_Pixie_Admin {
 							<strong>"!!!"</strong> is shown when the Serialized value is broken in some way, usually by string length indicators not matching the length of the string it partners.<br>
 							This column can not be sorted as it is derived.
 							</dd>
-							<dt>Autoload</dt>
-							<dd>Can be "yes" or "no". Determines whether the option should be automatically loaded into the object cache on every page load.</dd>
 						</dl>
 					</p>
 					<p>
-						The <strong>Option ID</strong>, <strong>Type</strong> and <strong>Autoload</strong> columns can be shown and hidden from the Screen Options panel.
+						The <strong>ID</strong>, <strong>Type</strong> and <strong>Related ID</strong> columns can be shown and hidden from the Screen Options panel.
 					</p>
 				',
 				'meta-pixie'
@@ -187,10 +187,10 @@ class Meta_Pixie_Admin {
 					<h3>Search</h3>
 					<p>
 						You can search and filter the shown commentmeta, postmeta, sitemeta, termmeta and usermeta records by entering text into the Search box on the top right of the table and using the "Search" button.<br>
-						When you use the search box, the plugin will show all records that either have the same Option ID if numeric, or where the Option Name or Option Value contains the search text.<br>
+						When you use the search box, the plugin will show all records that either have the same ID or Related ID if numeric, or where the Key or Value contains the search text.<br>
 					</p>
 					<p>
-						You can also use the "All", "Permanent" and "Transient" links to restrict the records being shown to those types of records.
+						You can also use the "All", "Permanent" and "Transient" links to restrict the records being shown to those types of records when searching the sitemeta table on a Multisite.
 					</p>
 					<p>
 						The number of records to show per page can be changed from the "Screen Options" panel. There you will find a "Records" box where you can change the number of records to show, use the "Apply" button to confirm the change.
@@ -205,11 +205,11 @@ class Meta_Pixie_Admin {
 			'content' => __( '
 					<h3>Rich View</h3>
 					<p>
-						The default List View with icon <span class="dashicons list-view"></span> shows the Option Values in their plain text form.
+						The default List View with icon <span class="dashicons list-view"></span> shows the Value fields in their plain text form.
 					</p>
 					<p>
-						The Rich View with icon <span class="dashicons excerpt-view"></span> shows the more complex data in Option Values in an easier to understand manner.<br>
-						When the data in the Option Value can be converted into an array of values the plugin will show the keys and values, and also expansion controls when there are multiple levels.
+						The Rich View with icon <span class="dashicons excerpt-view"></span> shows the more complex data in Value fields in an easier to understand manner.<br>
+						When the data in the Value field can be converted into an array of values the plugin will show the keys and values, and also expansion controls when there are multiple levels.
 					</p>
 				',
 				'meta-pixie'
