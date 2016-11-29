@@ -747,7 +747,6 @@ class Meta_Pixie_Admin {
 					);
 				}
 				$output .= '</select>';
-				$output .= '<input type="submit" name="" id="apply-blog-id-top" class="button action" value="' . __( 'Switch Site', 'meta-pixie' ) . '">';
 				$output .= '</div>';
 			}
 			$output .= '<div class="alignleft actions meta-pixie-extra-tablenav">';

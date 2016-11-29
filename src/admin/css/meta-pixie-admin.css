@@ -19,7 +19,8 @@
 	clear: both;
 }
 
-.meta-pixie-extra-tablenav:nth-of-type(2) {
+.meta-pixie-extra-tablenav:nth-of-type(2),
+.meta-pixie-extra-tablenav:nth-of-type(3) {
 	margin-left: -8px;
 }
 
