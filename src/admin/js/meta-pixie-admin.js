@@ -7,6 +7,7 @@
 	function toggleTruncate( event ) {
 		event.preventDefault();
 		var blogId = $( '#current-blog-id' ).val();
+		var table = $( '#current-table' ).val();
 		var collapsed = $( this ).hasClass( 'collapsed' );
 		var column = event.data.column;
 		var cell = $( this ).parents( 'td' );
@@ -17,6 +18,7 @@
 			{
 				action: 'meta_pixie_toggle_truncate',
 				blog_id: blogId,
+				table: table,
 				meta_id: metaId,
 				column: column,
 				collapsed: collapsed
