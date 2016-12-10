@@ -5,7 +5,7 @@
  * Plugin Name:       Meta Pixie
  * Plugin URI:        https://www.bytepixie.com/meta-pixie/
  * Description:       List, filter, sort and view commentmeta, postmeta, sitemeta, termmeta and usermeta records, even serialized and base64 encoded values.
- * Version:           1.0
+ * Version:           1.0.1
  * Author:            Byte Pixie
  * Author URI:        https://www.bytepixie.com/
  * License:           GPL-2.0+

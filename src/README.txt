@@ -80,5 +80,8 @@ Nope, but we have a Pro addon for that called [Meta Pixie Pro](https://www.bytep
 
 == Changelog ==
 
+= 1.0.1 =
+* Fix: Expanding value for usermeta record returns postmeta value if same meta_id exists.
+
 = 1.0 =
 * Initial release.
