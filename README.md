@@ -10,7 +10,7 @@ List, filter, sort and view commentmeta, postmeta, termmeta, sitemeta and userme
 * Highlights broken serialized values
 * Supports Multisites
 
-### Inspect Your Site's Options
+### Inspect Your Site's Metadata
 With Meta Pixie you can find out what is really going on with your WordPress metadata.
 
 Your metadata tables hold nearly all the settings that govern how your WordPress site looks and works, and if things aren't working quite as expected it's good to be able to peak into these records right in your site's admin dashboard.
