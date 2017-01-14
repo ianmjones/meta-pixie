@@ -80,6 +80,9 @@ Nope, but we have a Pro addon for that called [Meta Pixie Pro](https://www.bytep
 
 == Changelog ==
 
+= 1.1 =
+* New: Related ID is now a link to edit page for related comment, post, site or user as appropriate.
+
 = 1.0.1 =
 * Fix: Expanding value for usermeta record returns postmeta value if same meta_id exists.
 

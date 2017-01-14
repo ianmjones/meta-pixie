@@ -325,7 +325,7 @@ class Meta_Pixie_Admin {
 	 * @param object $item
 	 * @param array  $options
 	 *
-	 * @return string|void
+	 * @return string
 	 */
 	public function column_meta_value( $value, $item, $options ) {
 		global $mode;
@@ -366,7 +366,7 @@ class Meta_Pixie_Admin {
 	 * @param object $item
 	 * @param array  $options
 	 *
-	 * @return string|void
+	 * @return string
 	 */
 	public function column_meta_value_row_actions( $actions, $item, $options ) {
 		global $mode;
@@ -397,6 +397,53 @@ class Meta_Pixie_Admin {
 	}
 
 	/**
+	 * Formats the related_id column for display.
+	 *
+	 * @param string $value
+	 * @param object $item
+	 * @param array  $options
+	 *
+	 * @return string
+	 */
+	public function column_related_id( $value, $item, $options ) {
+		$blog_id = empty( $_REQUEST['blog_id'] ) ? '' : sanitize_key( $_REQUEST['blog_id'] );
+		$table   = empty( $_REQUEST['table'] ) ? '' : sanitize_key( $_REQUEST['table'] );
+
+		$output = $value;
+
+		if ( in_array( $table, array( 'commentmeta', 'postmeta', 'usermeta' ) ) ) {
+			if ( is_numeric( $blog_id ) && is_multisite() ) {
+				$blog_id = (int) $blog_id;
+				switch_to_blog( $blog_id );
+			}
+
+			$output = '<a href="';
+
+			switch ( $table ) {
+				case 'commentmeta':
+					$output .= get_edit_comment_link( $value );
+					break;
+				case 'postmeta':
+					$output .= get_edit_post_link( $value );
+					break;
+				case 'usermeta':
+					$output .= get_edit_user_link( $value );
+					break;
+			}
+
+			$output .= '">' . $value . '</a>';
+
+			if ( is_numeric( $blog_id ) && is_multisite() ) {
+				restore_current_blog();
+			}
+		} elseif ( 'sitemeta' == $table ) {
+			$output = '<a href="' . esc_url( network_admin_url( 'site-info.php?id=' . $value ) ) . '">' . $value . '</a>';
+		}
+
+		return $output;
+	}
+
+	/**
 	 * Handler for meta_pixie_column_display filter.
 	 *
 	 * @param mixed  $value
@@ -420,6 +467,9 @@ class Meta_Pixie_Admin {
 				if ( false !== strpos( $value, '!!!' ) ) {
 					$value = Meta_Pixie_Data_Format::wrap_with_error( $value, __( 'Broken data', 'meta-pixie' ) );
 				}
+				break;
+			case 'related_id':
+				$value = $this->column_related_id( $value, $item, $options );
 				break;
 		}
 
