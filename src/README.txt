@@ -3,7 +3,7 @@ Contributors: ianmjones
 Donate link: https://www.bytepixie.com/
 Tags: commentmeta, wp_commentmeta, postmeta, wp_postmeta, termmeta, wp_termmeta, sitemeta, wp_sitemeta, usermeta, wp_usermeta, metadata, admin, administration, search, sort, filter, view
 Requires at least: 3.9
-Tested up to: 4.7
+Tested up to: 4.7.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -82,6 +82,7 @@ Nope, but we have a Pro addon for that called [Meta Pixie Pro](https://www.bytep
 
 = 1.1 =
 * New: Related ID is now a link to edit page for related comment, post, site or user as appropriate.
+* Fix: Deprecation notice for `wp_get_sites` on WP 4.6+.
 
 = 1.0.1 =
 * Fix: Expanding value for usermeta record returns postmeta value if same meta_id exists.
