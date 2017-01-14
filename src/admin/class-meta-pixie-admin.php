@@ -436,6 +436,8 @@ class Meta_Pixie_Admin {
 			if ( is_numeric( $blog_id ) && is_multisite() ) {
 				restore_current_blog();
 			}
+		} elseif ( 'sitemeta' == $table ) {
+			$output = '<a href="' . esc_url( network_admin_url( 'site-info.php?id=' . $value ) ) . '">' . $value . '</a>';
 		}
 
 		return $output;
