@@ -36,7 +36,7 @@ class Meta_Pixie {
 	 */
 	public function __construct() {
 		$this->meta_pixie = 'meta-pixie';
-		$this->version    = '1.0.1';
+		$this->version    = '1.1';
 
 		$this->load_dependencies();
 		$this->set_locale();
